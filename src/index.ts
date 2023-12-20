@@ -1,5 +1,5 @@
 import express from 'express';
-import 'express-async-errors';
+import cors from 'cors';
 
 import diaryRouter from './routes/diaries';
 import { errorHandler } from './middleware';
@@ -9,6 +9,7 @@ const PORT = 3000;
 const BASE_URL = `http://localhost:${PORT}`;
 
 app.use(express.json());
+app.use(cors());
 app.use('/api/diaries', diaryRouter);
 app.use(errorHandler);
 
